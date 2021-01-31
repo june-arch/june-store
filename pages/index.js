@@ -1,34 +1,21 @@
 import Layout from "../components/layout";
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import WhatsappIcon from '@material-ui/icons/WhatsApp';
 import Product from '../components/product'
+import { getSortedProductData } from '../lib/productDump'
 
-let contactDesc = `A personal care for your body ritual needs`
-let contactNum = `(+62) 877-3398-6223`
-let produts = [
-  {
-    productName: 'Scrub Garam & Garam Mandi Spa Perawatan Tubuh Lembayung by The Body Ritual',
-    productImg: './Lembayung.jpg',
-    productPrice: '55000',
-    directLink: 'https://shopee.co.id/Scrub-Garam-Garam-Mandi-Spa-Perawatan-Tubuh-Lembayung-by-The-Body-Ritual-i.322074598.5860510980'
-  },
-  {
-    productName: 'Scrub Garam & Garam Mandi Spa Perawatan Tubuh Arunika by The Body Ritual',
-    productImg: './Arunika.jpg',
-    productPrice: '55000',
-    directLink: 'https://shopee.co.id/Scrub-Garam-Garam-Mandi-Spa-Perawatan-Tubuh-Arunika-by-The-Body-Ritual-i.322074598.5473976544'
-  },{
-    productName: 'Scrub Garam & Garam Mandi Spa Perawatan Tubuh Jenggala by The Body Ritual',
-    productImg: './Jenggala.jpg',
-    productPrice: '55000',
-    directLink: 'https://shopee.co.id/Scrub-Garam-Garam-Mandi-Spa-Perawatan-Tubuh-Jenggala-by-The-Body-Ritual-i.322074598.4474034552'
+
+
+export async function getStaticProps() {
+  const allProduct = getSortedProductData()
+  return {
+    props: {
+      allProduct
+    }
   }
-]
-export default function Home() {
+}
+
+export default function Home({allProduct}) {
   return (
-    <Layout>
+    <Layout home>
       <section className="bg-white py-8">
         <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
             <nav id="store" className="w-full z-30 top-0 px-6 py-1">
@@ -50,8 +37,10 @@ export default function Home() {
               </div>
             </nav>
 
-            {produts.map(value => 
+            {allProduct.map(value => 
               <Product 
+                key={value.id}
+                id={value.id}
                 productName={value.productName}
                 productImg={value.productImg} 
                 productPrice={value.productPrice} 
@@ -61,32 +50,6 @@ export default function Home() {
             
         </div>
       </section>
-      <footer className="container mx-auto bg-white py-8 border-t border-gray-400">
-        <div className="container flex px-3 py-8 ">
-            <div className="w-full mx-auto flex flex-wrap">
-                <div className="flex w-full lg:w-1/2 ">
-                    <div className="px-3 md:px-0">
-                        <h3 className="font-bold text-gray-900">Contact</h3>
-                        <p className="py-2">{contactDesc}</p>
-                        <p>{contactNum}</p>
-                    </div>
-                </div>
-                <div className="flex w-full lg:w-1/2 lg:justify-end lg:text-right">
-                    <div className="px-3 md:px-0">
-                        <h3 className="font-bold text-gray-900">Social</h3>
-                        <ul className="list-reset items-center pt-3">
-                            <li>
-                                <FacebookIcon/>
-                                <InstagramIcon/>
-                                <TwitterIcon/>
-                                <WhatsappIcon/>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </footer>
     </Layout>
   )
 }

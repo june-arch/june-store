@@ -1,27 +1,33 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import WhatsappIcon from '@material-ui/icons/WhatsApp';
 
-const name = 'M. Juniko Dwi P.'
 export const siteTitle = 'The Body Ritual'
+let contactDesc = `A personal care for your body ritual needs`
+let contactNum = `(+62) 877-3398-6223`
 
 export default function Layout({ children, home }) {
   return (
     <div className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta charset="UTF-8"/>
+        <meta charSet="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
         <meta name="description"content="Personal website"/>
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="facebook-domain-verification" content="nzyrfcm2cs6axy6rptfg2wrrehlqwc" />
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet"/>
       </Head>
       <header className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
         <nav id="header" className="w-full z-30 top-0 py-1">
             <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
-                <label for="menu-toggle" className="cursor-pointer md:hidden block">
+                <label htmlFor="menu-toggle" className="cursor-pointer md:hidden block">
                     <svg className="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                         <title>menu</title>
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
@@ -67,14 +73,49 @@ export default function Layout({ children, home }) {
                 </div>
             </div>
         </nav>
-        <div className="relative container mx-auto" style={{'maxWidth':'1600px'}}>
-            <div className="w-full" style={{'height':'40vh'}}>
-                <div className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-center" style={{'background-image': "url('./bg.jpg')"}}></div>
+        {home ? (
+        <>
+            <div className="relative container mx-auto" style={{'maxWidth':'1600px'}}>
+                <div className="w-full" style={{'height':'40vh'}}>
+                    <div className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-center" style={{'backgroundImage': "url('./bg.jpg')"}}></div>
+                </div>
             </div>
-        </div>
+        </>) : ''}
       </header>
       <main>{children}</main>
-      {/* footer */}
+      {!home && (
+        <div className="w-full items-center flex flex-col mb-5 hover:text-blue">
+          <Link href="/">
+            <a>← Back to home</a>
+          </Link>
+        </div>
+      )}
+      <footer className="container mx-auto bg-white py-8 border-t border-gray-400">
+        <div className="container flex px-3 py-8 ">
+            <div className="w-full mx-auto flex flex-wrap">
+                <div className="flex w-full lg:w-1/2 ">
+                    <div className="px-3 md:px-0">
+                        <h3 className="font-bold text-gray-900">Contact</h3>
+                        <p className="py-2">{contactDesc}</p>
+                        <p>{contactNum}</p>
+                    </div>
+                </div>
+                <div className="flex w-full lg:w-1/2 lg:justify-end lg:text-right">
+                    <div className="px-3 md:px-0">
+                        <h3 className="font-bold text-gray-900">Social</h3>
+                        <ul className="list-reset items-center pt-3">
+                            <li>
+                                <FacebookIcon/>
+                                <InstagramIcon/>
+                                <TwitterIcon/>
+                                <WhatsappIcon/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     </div>
   )
 }
