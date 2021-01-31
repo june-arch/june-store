@@ -3,18 +3,11 @@ import { getAllProductIds, getProductData } from '../../lib/productDump'
 import Head from 'next/head'
 import Date from '../../components/date'
 import Rupiah from '../../components/rupiah'
-import redirect from 'nextjs-redirect'
-import {useRouter} from 'next/router'
 import {useEffect} from 'react'
-
-export default function Post({ postData }) {
-    const router = useRouter();
+export default function Post({ postData }) {    
     useEffect(() => {
-        // Always do navigations after the first render
-        router.replace(postData.directLink)
-      }, [])
-    
-    
+        process.browser && window.location.replace(postData.directLink)
+    }, [])
     return (
       <Layout>
         {/* Add this <Head> tag */}
@@ -47,6 +40,7 @@ export default function Post({ postData }) {
   }
 
 export async function getStaticPaths() {
+    
   const paths = getAllProductIds()
   return {
     paths,
