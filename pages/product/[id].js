@@ -3,8 +3,18 @@ import { getAllProductIds, getProductData } from '../../lib/productDump'
 import Head from 'next/head'
 import Date from '../../components/date'
 import Rupiah from '../../components/rupiah'
+import redirect from 'nextjs-redirect'
+import {useRouter} from 'next/router'
+import {useEffect} from 'react'
 
 export default function Post({ postData }) {
+    const router = useRouter();
+    useEffect(() => {
+        // Always do navigations after the first render
+        router.replace(postData.directLink)
+      }, [])
+    
+    
     return (
       <Layout>
         {/* Add this <Head> tag */}
@@ -26,7 +36,7 @@ export default function Post({ postData }) {
                         </svg>
                     </div>
                 </a>
-                <a href={postData ? postData.directLink : ''} className="mt-2 border-2 border-gray-500 hover:border-blue-500 rounded-full font-bold text-gray-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-500 hover:text-white">
+                <a href={postData ? postData.directLink : ''} class="mt-2 border-2 border-gray-500 hover:border-blue-500 rounded-full font-bold text-gray-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-500 hover:text-white">
                     Order
                 </a>
             </div>
