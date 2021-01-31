@@ -76,9 +76,24 @@ export default function Layout({ children, home }) {
         {home ? (
         <>
             <div className="relative container mx-auto" style={{'maxWidth':'1600px'}}>
-                <div className="w-full" style={{'height':'40vh'}}>
+                <div className="w-full bg-image" style={{'height':'40vh'}}>
                     <div className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-center" style={{'backgroundImage': "url('./bg-2.jpg')"}}></div>
                 </div>
+                <style jsx>{`
+                    @media screen and (min-width: 480px) {
+                        .bg-image{
+                            height:60vh !important;
+                        }
+                    }
+                    @media screen and (min-width: 780px) {
+                        .bg-image{
+                            height:80vh !important;
+                        }
+                    }
+                    .bg-image{
+                        height:40vh;
+                    }
+                `}</style>
             </div>
         </>) : ''}
       </header>
