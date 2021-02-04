@@ -5,9 +5,9 @@ import Date from '../../components/date'
 import Rupiah from '../../components/rupiah'
 import {useEffect} from 'react'
 export default function Post({ postData }) {    
-    useEffect(() => {
-        process.browser && window.location.replace(postData.directLink)
-    }, [])
+    // useEffect(() => {
+    //     process.browser && window.location.replace(postData.directLink)
+    // }, [])
     return (
       <Layout>
         {/* Add this <Head> tag */}
