@@ -29,7 +29,7 @@ export default function Post({ postData }) {
                         </svg>
                     </div>
                 </a>
-                <a href={postData ? postData.directLink : ''} class="mt-2 border-2 border-gray-500 hover:border-blue-500 rounded-full font-bold text-gray-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-500 hover:text-white">
+                <a href={postData ? postData.directLink : ''} className="mt-2 border-2 border-gray-500 hover:border-blue-500 rounded-full font-bold text-gray-500 px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-500 hover:text-white">
                     Order
                 </a>
             </div>

@@ -5,9 +5,9 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import WhatsappIcon from '@material-ui/icons/WhatsApp';
 
-export const siteTitle = 'The Body Ritual'
-let contactDesc = `A personal care for your body ritual needs`
-let contactNum = `(+62) 877-3398-6223`
+export const siteTitle = 'June Store'
+let contactDesc = `UI/UX Design web for your website`
+let contactNum = `(+62) 877-1198-1123`
 
 export default function Layout({ children, home }) {
   return (
@@ -49,7 +49,7 @@ export default function Layout({ children, home }) {
                         <svg className="fill-current text-gray-800 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M5,22h14c1.103,0,2-0.897,2-2V9c0-0.553-0.447-1-1-1h-3V7c0-2.757-2.243-5-5-5S7,4.243,7,7v1H4C3.447,8,3,8.447,3,9v11 C3,21.103,3.897,22,5,22z M9,7c0-1.654,1.346-3,3-3s3,1.346,3,3v1H9V7z M5,10h2v2h2v-2h6v2h2v-2h2l0.002,10H5V10z" />
                         </svg>
-                        THE BODY RITUAL
+                        June Store
                     </a>
                 </div>
 
@@ -77,7 +77,7 @@ export default function Layout({ children, home }) {
         <>
             <div className="relative container mx-auto" style={{'maxWidth':'1600px'}}>
                 <div className="w-full bg-image" style={{'height':'40vh'}}>
-                    <div className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-center" style={{'backgroundImage': "url('./bg-2.jpg')"}}></div>
+                    <div className="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-center" style={{'backgroundImage': "url('./bg.png')"}}></div>
                 </div>
                 <style jsx>{`
                     @media screen and (min-width: 480px) {
