@@ -20,7 +20,7 @@ export default function Layout({ children, home }) {
         <meta name="description"content="Personal website"/>
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="facebook-domain-verification" content="duluffnpeds0d7q4ylww2pl8np6v2a" />
+        <meta name="facebook-domain-verification" content="8cvkpj421jdbvr60w1azq7p0sw9fww" />
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet"/>
       </Head>
       <header className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
